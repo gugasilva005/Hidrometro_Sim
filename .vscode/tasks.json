@@ -12,26 +12,22 @@
                 "${workspaceFolder}/*.cpp",         // Compila .cpp da pasta raiz (main.cpp, Hidrometro.cpp, etc.)
                 "${workspaceFolder}/components/*.cpp",  // Compila .cpp da pasta de componentes
                 
-                // 2. CAMINHOS PARA SFML
+                // 2. CAMINHOS PARA RAYLIB
                 "-I",
-                "C:/SFML-3.0.2/include",
+                "C:/Github/libs/raylib-5.5_win64_mingw-w64/include/",
                 "-L",
-                "C:/SFML-3.0.2/lib",
+                "C:/Github/libs/raylib-5.5_win64_mingw-w64/lib",
                 
                 // 3. ARQUIVO DE SAÍDA
                 "-o",
                 "${workspaceFolder}/bin/hidrometro.exe",
                 
                 // 4. FLAGS E BIBLIOTECAS (LINKAGEM)
-                "-DSFML_STATIC",
-                "-lsfml-graphics-s",
-                "-lsfml-window-s",
-                "-lsfml-system-s",
-                "-lfreetype",
+                "-lraylib",
                 "-lopengl32",
-                "-lwinmm",
                 "-lgdi32",
-                "-lws2_32"
+                "-lwinmm",
+                "-static"
             ],
             "group": {
                 "kind": "build",

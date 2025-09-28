@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/SFML-3.0.2/include/**" // Caminho para os includes da SFML
+                "C:/Github/libs/raylib-5.5_win64_mingw-w64/include/**" // Caminho para os includes da SFML
             ],
             "defines": [
                 "_DEBUG",

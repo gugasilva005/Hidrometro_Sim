@@ -33,7 +33,7 @@ class Hidrometro {
         void setReadingCallback(ReadingCallback cb);
 
     private:
-        void simLoop();
+        void updateLoop();
         void applyConfig(const HidroConfig &cfg);
 
         // componentes
@@ -43,7 +43,7 @@ class Hidrometro {
         ConfigWatcher configWatcher;
 
         // threads
-        std::thread sim_thread;
+        std::thread update_thread;
         std::atomic<bool> running;
 
         // callback
