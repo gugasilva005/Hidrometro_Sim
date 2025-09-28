@@ -1,10 +1,10 @@
 #include "raylib.h"
-#include "Hidrometro.h" // Sua classe de simulação multi-thread
+#include "Hidrometro.h" 
 #include <string>
-#include <cmath>     // Para as funções matemáticas como fmod() e pow()
+#include <cmath>     
 
 //================================================================================
-// FUNÇÕES AUXILIARES DE DESENHO (sem alterações)
+// FUNÇÕES AUXILIARES DE DESENHO 
 //================================================================================
 
 void DrawOdometer(Vector2 position, double value, int numDigits, Vector2 digitSize) {
@@ -64,12 +64,8 @@ void DrawAnalogDial(Vector2 center, float radius, float value, const char* title
 }
 
 
-//================================================================================
-// FUNÇÃO PRINCIPAL
-//================================================================================
-
 int main(void) {
-    // --- 1. INICIALIZAÇÃO ---
+    
     const int screenWidth = 800;
     const int screenHeight = 600;
 
@@ -86,11 +82,11 @@ int main(void) {
     const float VAZAO_CHANGE_SPEED = 10.0f;
     const float VAZAO_SMOOTHING_FACTOR = 5.0f;
 
-    // --- 2. LOOP PRINCIPAL DA APLICAÇÃO ---
+    // LOOP PRINCIPAL DA APLICAÇÃO 
     while (!WindowShouldClose()) {
         float dt = GetFrameTime();
 
-        // --- 2.1. ENTRADA DO USUÁRIO ---
+        // ENTRADA DO USUÁRIO 
         if (IsKeyDown(KEY_UP)) {
             targetVazao += VAZAO_CHANGE_SPEED * dt;
         }
@@ -111,18 +107,18 @@ int main(void) {
         }
         hidrometro.setVazaoEntradaMm(currentVazao);
 
-        // --- 2.2. LER DADOS DA SIMULAÇÃO ---
+        // LER DADOS DA SIMULAÇÃO 
         double volume = hidrometro.getVolumeLitros();
         double pressao = hidrometro.getPressaoKpa();
         double vazao_real = hidrometro.getVazaoEntradaMm();
 
-        // --- 2.3. DESENHO (RENDERIZAÇÃO) ---
+        // DESENHO
         BeginDrawing();
         ClearBackground((Color){ 10, 20, 30, 255 });
 
         Vector2 center = { (float)screenWidth / 2, (float)screenHeight / 2 };
 
-        // --- MOSTRADOR PRINCIPAL DE VOLUME (ODÔMETRO) ---
+        // MOSTRADOR PRINCIPAL DE VOLUME (ODÔMETRO) 
         int numInteiros = 6;
         Vector2 odoSize = { 50, 70 };
         Vector2 odoPosition = { center.x - (numInteiros * odoSize.x) / 2, 100 };
@@ -131,26 +127,23 @@ int main(void) {
         DrawText("m³", odoPosition.x + (numInteiros * odoSize.x) + 10, odoPosition.y + odoSize.y - 25, 30, RAYWHITE);
 
 
-        // --- NOVOS MOSTRADORES PARA VAZÃO E PRESSÃO ---
+        // MOSTRADORES PARA VAZÃO E PRESSÃO
         Vector2 pressaoDialPos = { (float)screenWidth / 4, 350 };
         Vector2 vazaoDialPos = { (float)screenWidth * 3 / 4, 350 };
         float dialRadius = 100.0f;
 
-        // Normaliza os valores para o ponteiro (0.0 a 1.0)
-        float pressaoNormalizada = pressao / 150.0f; // Supõe que a pressão máxima do mostrador é 150 kPa
-        float vazaoNormalizada = vazao_real / 100.0f; // Supõe que a vazão máxima do mostrador é 100 mm
+        
+        float pressaoNormalizada = pressao / 150.0f; 
+        float vazaoNormalizada = vazao_real / 100.0f; 
 
         if (pressaoNormalizada < 0) pressaoNormalizada = 0;
         if (pressaoNormalizada > 1) pressaoNormalizada = 1;
         if (vazaoNormalizada < 0) vazaoNormalizada = 0;
         if (vazaoNormalizada > 1) vazaoNormalizada = 1;
 
-        // Desenha os dois novos relógios
+        
         DrawAnalogDial(pressaoDialPos, dialRadius, pressaoNormalizada, "Pressão (kPa)", BLUE);
         DrawAnalogDial(vazaoDialPos, dialRadius, vazaoNormalizada, "Vazão (mm)", GREEN);
-
-
-        // --- REMOVIDO: Código dos 4 mostradores fracionários ---
 
 
         // Exibe os valores exatos para referência
@@ -164,7 +157,7 @@ int main(void) {
         EndDrawing();
     }
 
-    // --- 3. FINALIZAÇÃO ---
+    // FINALIZAÇÃO
     hidrometro.stop();
     CloseWindow();
 
