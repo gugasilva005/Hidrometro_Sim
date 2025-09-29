@@ -23,7 +23,7 @@ A simulação pode ser controlada em tempo real pelo teclado e reage a mudanças
 ### 🛠️ Tecnologias Utilizadas
 
 * **Linguagem:** C++17
-* **Biblioteca Gráfica:** [Raylib](https://github.com/raysan5/raylib)
+* **Biblioteca Gráfica:** [Raylib](https://www.raylib.com/)
 * **Compilador:** MinGW (GCC) no Windows
 
 ### ⚙️ Instalação e Compilação
