@@ -69,3 +69,10 @@ Para compilar e executar este projeto, você precisará do compilador MinGW (g++
 * **Setas CIMA/BAIXO:** Aumenta ou diminui a vazão de água no sistema.
 * **Barra de Espaço:** Zera a vazão instataneamente.
 * **Tecla R:** Reseta o contador de volume do odômetro.
+
+### 📄 Arquitetura e Análise UML
+
+Para uma análise detalhada da arquitetura, incluindo o Diagrama de Classes UML formal, consulte o nosso documento de design:
+
+* **[Análise e Diagrama de Classes (UML)](docs/DIAGRAMA_DE_CLASSES.md)**
+* **Linguagem de modelagem da UML:** Mermaid
