@@ -75,4 +75,4 @@ Para compilar e executar este projeto, você precisará do compilador MinGW (g++
 Para uma análise detalhada da arquitetura, incluindo o Diagrama de Classes UML formal, consulte o nosso documento de design:
 
 * **[Análise e Diagrama de Classes (UML)](docs/DIAGRAMA_DE_CLASSES.md)**
-* **Linguagem de modelagem da UML:** Mermaid
+* **Tecnologia para modelagem da UML:** [Mermaid Live Editor](https://mermaid.live/)
