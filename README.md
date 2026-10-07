@@ -38,7 +38,7 @@ Para compilar e executar este projeto, você precisará do compilador MinGW (g++
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/gugasilva005/Hidrometro_Sim.git](https://github.com/gugasilva005/Hidrometro_Sim.git)
+    git clone https://github.com/gugasilva005/Hidrometro_Sim.git
     cd Hidrometro_Sim
     ```
 
